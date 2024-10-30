@@ -1,0 +1,16 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      docker:
+        image: docker:19.03.12
+        options: --privileged
+        ports:
+          - 5000:5000
+          - 5001:5001
